@@ -1,0 +1,15 @@
+sounds:
+  first:
+    name: NOTE_BASS_DRUM
+    volume: 0.5
+    pitch: 0.7
+  second:
+    name: NOTE_BASS_DRUM
+    volume: 0.5
+    pitch: 0.2
+health:
+  beat: 12
+  fastbeat: 6
+play-on-hit:
+  enabled: true
+  duration: 5

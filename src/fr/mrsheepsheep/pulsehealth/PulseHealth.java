@@ -28,6 +28,8 @@ public class PulseHealth extends JavaPlugin {
 	boolean playOnHit = false;
 	float duration = 5f;
 	
+	boolean customsounds = false;
+	
 	public void onEnable(){
 		
 	    try {
@@ -50,7 +52,7 @@ public class PulseHealth extends JavaPlugin {
 		
 		sound1 = Sound.valueOf(c.getString("sounds.first.name"));
 		sound2 = Sound.valueOf(c.getString("sounds.second.name"));
-		
+
 		volume1 = Float.valueOf(c.getString("sounds.first.volume"));
 		volume2 = Float.valueOf(c.getString("sounds.second.volume"));
 		
@@ -62,5 +64,7 @@ public class PulseHealth extends JavaPlugin {
 		
 		playOnHit = c.getBoolean("play-on-hit.enabled");
 		duration = Float.valueOf(c.getString("play-on-hit.duration"));
+		
+		customsounds = c.getBoolean("custom-sounds");
 	}
 }

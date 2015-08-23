@@ -35,8 +35,12 @@ public class PulseRunnables {
 		}
 	};
 
-	private void sendMap(Player p, int id, Sound sound, float volume, float pitch, HashMap<String, Float> map, float f){
-		p.playSound(p.getLocation(), sound, volume, pitch);
+	private void sendMap(Player p, int id, String sound, float volume, float pitch, HashMap<String, Float> map, float f){
+		if (plugin.customsounds)
+			p.playSound(p.getLocation(), sound, volume, pitch);
+		else
+			p.playSound(p.getLocation(), Sound.valueOf(sound), volume, pitch);
+
 		if (id == 2){
 			map.put(p.getName(), map.get(p.getName()) - f);
 			if (map.get(p.getName()) == 0){
@@ -65,10 +69,10 @@ public class PulseRunnables {
 						plugin.pl.hitPlayers.remove(p.getName());
 					}
 					else if (health <= plugin.beat && health > plugin.fastbeat && beat == 0){
-						sendMap(p, id, sound, volume, pitch, map, 1);
+						sendMap(p, id, sound.toString(), volume, pitch, map, 1);
 					}
 					else if (health <= plugin.fastbeat && (beat == 0 || beat == 5)){
-						sendMap(p, id, sound, volume, pitch, map, 0.5f);
+						sendMap(p, id, sound.toString(), volume, pitch, map, 0.5f);
 					}
 				}
 			}

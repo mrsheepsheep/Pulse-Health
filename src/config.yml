@@ -13,3 +13,4 @@ health:
 play-on-hit:
   enabled: true
   duration: 5
+custom-sounds: false

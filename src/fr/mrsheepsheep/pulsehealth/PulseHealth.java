@@ -1,6 +1,7 @@
 package fr.mrsheepsheep.pulsehealth;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -29,6 +30,9 @@ public class PulseHealth extends JavaPlugin {
 	float duration = 5f;
 	
 	boolean customsounds = false;
+	
+	List<String> disabledworlds;
+	boolean aswhitelist;
 	
 	public void onEnable(){
 		
@@ -66,5 +70,8 @@ public class PulseHealth extends JavaPlugin {
 		duration = Float.valueOf(c.getString("play-on-hit.duration"));
 		
 		customsounds = c.getBoolean("custom-sounds");
+		
+		disabledworlds = c.getStringList("disabled-worlds");
+		aswhitelist = c.getBoolean("use-as-whitelist");
 	}
 }
